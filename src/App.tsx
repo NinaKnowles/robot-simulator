@@ -1,7 +1,5 @@
 
-import { Box, Button, Container,FormControl } from '@mui/material'
-
-import { FormHelperText, Input, InputLabel } from '../node_modules/@mui/material/index';
+import { Box, Container,FormControl, FormHelperText, Input, InputLabel } from '@mui/material'
 
 import RobotTable from './components/robot-table'
 
@@ -12,15 +10,15 @@ function App() {
   return (
     <>
     <Container>
-      <Box className="container">
+      <Box className="container flex-center">
         <Box>
-          <h1>Input your command here!</h1>
+          <h1>Set the starting position</h1>
           <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <FormHelperText id="my-helper-text">never share your email.</FormHelperText>
+            <InputLabel htmlFor="input-position">Starting position</InputLabel>
+            <Input className="input" aria-describedby="my-helper-text" />
+            <FormHelperText id="my-helper-text">Enter your coordinates in the following format: (X,Y) F </FormHelperText>
           </FormControl>
-          <Button variant="contained">Submit</Button>
+          <button className="button">Enter</button>
         </Box>
         <RobotTable />
       </Box>

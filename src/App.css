@@ -1,23 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 .container{
   display: flex;
   justify-content: space-around;
   height: 100vh;
-  background-color: lightpink;
   width:100%;
 }
 
 #table {
-  background-color: lightblue;
-  width: 600px;
-  height: 600px;
-  position: relative;
+ border: 10px solid #F9DA53;
 } 
 
 #robot {
-  position: absolute;
-  right: 0;
-  top: 80px;
-  border: 3px solid #73AD21
+  font-size: 5em;
+}
+
+#cell > .MuiPaper-root{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+}
+
+:root {
+font-family: "Open Sans",sans-serif;
+}
+
+.button {
+  color: white;
+  background-color: black;
+  border: none;
+  padding:.85rem 2rem; 
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
 }
