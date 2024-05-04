@@ -41,3 +41,9 @@ font-family: "Open Sans",sans-serif;
   font-size: 1rem;
   cursor: pointer;
 }
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
