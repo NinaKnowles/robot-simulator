@@ -1,42 +1,79 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.robot{
+  position:relative;
+  left:200px;  
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.antenna{
+  left:140px;
+  position:relative;
+  width: 5px;
+  height: 0;
+  border: 5px solid transparent;
+  border-top:10px solid #777;
+  border-bottom:80px solid #888;
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.foot{
+  border: 15px solid #999;
+  border-radius:40px;
+  height:40px;
+  width: 40px;
+  background: #ccc;
+  position:relative;
+  left:110px;
+  top:-10px;
+  z-index:-1;
+}
+
+.torso{
+  height:0;
+  width:140px;
+  border-top:300px solid #bc6;
+  border-left:75px solid transparent;
+  border-right:75px solid transparent;
+  border-radius: 20px 20px 100px 100px;
+}
+
+.left{
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight:bold;
+  font-size:250px;
+  color:#666;
+  transform: rotate(200deg);
+  position:relative;
+  left:-190px;
+  top:-320px;
+  z-index:-1;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+  .right{
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight:bold;
+  font-size:250px;
+  color:#666;
+  transform: scaleY(-1) rotate(20deg);
+ 
+  position:relative;
+  left:190px;
+  top:-620px;
+  z-index:-1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.laser {
+  animation: blink .5s infinite;
 }
 
-.card {
-  padding: 2em;
+.head{
+  position:relative;
+  left:70px;
+  background:radial-gradient(circle, white 15%, transparent 40%), #cc5;
+  background-size: 75px 150px;
+  height:150px;
+  width:150px;
+  background-color:#cc5;
+  border-radius: 60px 60px 10px 10px;
+  border-bottom:40px double #666;
 }
 
-.read-the-docs {
-  color: #888;
-}
