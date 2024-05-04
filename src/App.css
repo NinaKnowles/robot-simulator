@@ -1,79 +1,23 @@
 
-.robot{
-  position:relative;
-  left:200px;  
+
+.container{
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  background-color: lightpink;
+  width:100%;
 }
 
-.antenna{
-  left:140px;
-  position:relative;
-  width: 5px;
-  height: 0;
-  border: 5px solid transparent;
-  border-top:10px solid #777;
-  border-bottom:80px solid #888;
-  
+#table {
+  background-color: lightblue;
+  width: 600px;
+  height: 600px;
+  position: relative;
+} 
+
+#robot {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  border: 3px solid #73AD21
 }
-
-.foot{
-  border: 15px solid #999;
-  border-radius:40px;
-  height:40px;
-  width: 40px;
-  background: #ccc;
-  position:relative;
-  left:110px;
-  top:-10px;
-  z-index:-1;
-}
-
-.torso{
-  height:0;
-  width:140px;
-  border-top:300px solid #bc6;
-  border-left:75px solid transparent;
-  border-right:75px solid transparent;
-  border-radius: 20px 20px 100px 100px;
-}
-
-.left{
-  font-family: 'Poller One', verdana, arial, sans-serif;
-  font-weight:bold;
-  font-size:250px;
-  color:#666;
-  transform: rotate(200deg);
-  position:relative;
-  left:-190px;
-  top:-320px;
-  z-index:-1;
-  }
-
-  .right{
-  font-family: 'Poller One', verdana, arial, sans-serif;
-  font-weight:bold;
-  font-size:250px;
-  color:#666;
-  transform: scaleY(-1) rotate(20deg);
- 
-  position:relative;
-  left:190px;
-  top:-620px;
-  z-index:-1;
-}
-
-.laser {
-  animation: blink .5s infinite;
-}
-
-.head{
-  position:relative;
-  left:70px;
-  background:radial-gradient(circle, white 15%, transparent 40%), #cc5;
-  background-size: 75px 150px;
-  height:150px;
-  width:150px;
-  background-color:#cc5;
-  border-radius: 60px 60px 10px 10px;
-  border-bottom:40px double #666;
-}
-

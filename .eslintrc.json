@@ -16,6 +16,7 @@
 	},
 	"rules": {
 		"react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
 		"no-duplicate-imports": 1,
 		"no-self-compare": 2,
 		"no-unreachable-loop": 1,
