@@ -1,51 +1,42 @@
 
-import { Box, Container,FormControl, FormGroup, FormHelperText, Input, InputLabel, MenuItem, Select } from '@mui/material'
+import { Box, Container } from '@mui/material'
+import InputForm from './components/input-form'
 
 import RobotTable from './components/robot-table'
 
 import './App.css'
+import { useState } from 'react';
+
+export interface PositionValues {
+  xCoordinate: number;
+  yCoordinate: number;
+  // direction: string;
+}
 
 function App() {
 
-  function handleSubmit(e: { preventDefault: () => void; }) {
-    e.preventDefault();
-    console.log('You clicked submit.');
-  }
+  const [robotPosition, setRobotPosition] = useState<PositionValues>({
+    xCoordinate: 0,
+    yCoordinate: 0,
+    // direction: '',
+  });
+
+  const handleFormSubmit = (data: PositionValues) => {
+    setRobotPosition({ 
+      xCoordinate: Number(data.xCoordinate), 
+      yCoordinate: Number(data.yCoordinate),
+    });
+  };
 
   return (
     <>
     <Container>
       <Box className="container flex-center">
-        <form className="flex-column" onSubmit={handleSubmit}>
-            <h1>Set the starting position</h1>
-            <FormControl>
-              <InputLabel>Direction</InputLabel>
-              <Select
-                // value={direction}
-                label="Direction"
-                // onChange={handleChange}
-              >
-                <MenuItem value={1}>NORTH</MenuItem>
-                <MenuItem value={2}>EAST</MenuItem>
-                <MenuItem value={3}>SOUTH</MenuItem>
-                <MenuItem value={4}>WEST</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl>
-              <InputLabel htmlFor="input-position">X Coordinate</InputLabel>
-              <Input className="input" aria-describedby="my-helper-text" />
-              <FormHelperText id="my-helper-text">Enter a value between 0-4 </FormHelperText>
-            </FormControl>
-            <FormControl>
-              <InputLabel htmlFor="input-position">Y Coordinate</InputLabel>
-              <Input className="input" aria-describedby="my-helper-text" />
-              <FormHelperText id="my-helper-text">Enter a value between 0-4 </FormHelperText>
-            </FormControl>
-
-            <button type="submit" className="button">Enter</button>
-        </form >
+        <InputForm onSubmit={handleFormSubmit}/>
         <Box>
-          <RobotTable />  
+          <RobotTable   
+            xCoordinate={robotPosition.xCoordinate}
+            yCoordinate={robotPosition.yCoordinate} />  
         </Box>
       </Box>
     </Container>

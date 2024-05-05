@@ -1,6 +1,8 @@
 import { Box, Grid, Paper, styled } from '@mui/material';
+
+import { PositionValues } from '../App';
+
 import Robot from './robot';
-import { useState } from 'react';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -11,14 +13,14 @@ const Item = styled(Paper)(({ theme }) => ({
     width:90, 
 }));
 
-const RobotTable = () => {
+const RobotTable = ({
+    // direction,
+    xCoordinate,
+    yCoordinate,
+  }: PositionValues) => {
 
     const rows = [0, 1, 2, 3, 4];
     const columns = [0, 1, 2, 3, 4];
-
-    const [robotVerticalPosition, setRobotVerticalPosition] = useState(0);
-    const [robotHorizontalPosition, setRobotHorizontalPosition] = useState(1);
-
 
     return (
     <Box>
@@ -27,7 +29,7 @@ const RobotTable = () => {
           <Grid key={column} item >
                 {rows.map((row) => (
             <Grid key={row} item  style={{ border: '1px solid #F7F7F7' }} id="cell">
-                 <Item>{robotVerticalPosition === column && robotHorizontalPosition === row ? <Robot/> : ''}</Item>
+                 <Item>{yCoordinate === column && xCoordinate === row ? <Robot/> : ''}</Item>
             </Grid>
             ))}
           </Grid>
