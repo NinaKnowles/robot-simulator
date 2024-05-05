@@ -23,7 +23,6 @@ export default function InputForm({ onSubmit }: InputFormProps) {
   const handleFormSubmit = (data: PositionValues) => {
     const { xCoordinate, yCoordinate } = data;
 
-    
     if (xCoordinate < 0 || xCoordinate > 4) {
       setErrors({xCoordinate:'Value must be between 0-4'});
     } else if (yCoordinate < 0 || yCoordinate > 4){
