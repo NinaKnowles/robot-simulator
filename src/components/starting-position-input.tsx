@@ -15,7 +15,7 @@ export interface ErrorValues {
 } 
 
 
-export default function StartingPositionInput({ onSubmit }: InputFormProps) {
+export default function InputForm({ onSubmit }: InputFormProps) {
   const [errors, setErrors] = useState<Partial<ErrorValues>>({});
   const { control, handleSubmit } = useForm<PositionValues>();
 
@@ -39,7 +39,7 @@ export default function StartingPositionInput({ onSubmit }: InputFormProps) {
       <Controller
         name="direction"
         control={control}
-        defaultValue="NORTH"
+        defaultValue={0}
         render={({field}) => (
           <>
           <InputLabel>Direction</InputLabel>
@@ -47,10 +47,10 @@ export default function StartingPositionInput({ onSubmit }: InputFormProps) {
             required
             {...field}
           >
-            <MenuItem value="NORTH">NORTH</MenuItem>
-            <MenuItem value="EAST">EAST</MenuItem>
-            <MenuItem value="SOUTH">SOUTH</MenuItem>
-            <MenuItem value="WEST">WEST</MenuItem>
+            <MenuItem value={0}>NORTH</MenuItem>
+            <MenuItem value={90}>EAST</MenuItem>
+            <MenuItem value={180}>SOUTH</MenuItem>
+            <MenuItem value={270}>WEST</MenuItem>
           </Select>
           </>
         )}

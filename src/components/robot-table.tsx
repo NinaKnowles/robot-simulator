@@ -4,6 +4,7 @@ import { PositionValues } from '../App';
 
 import Robot from './robot';
 
+import { degreesToDirection } from '../utils/directions-to-degrees';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -23,6 +24,8 @@ const RobotTable = ({
     const rows = [0, 1, 2, 3, 4];
     const columns = [0, 1, 2, 3, 4];
 
+    console.log(degreesToDirection(direction));
+
     return (
     <Box>
         <Grid container id="table">
@@ -30,7 +33,7 @@ const RobotTable = ({
           <Grid key={column} item >
                 {rows.map((row) => (
             <Grid key={row} item  style={{ border: '1px solid #F7F7F7' }} className="cell" data-testid={`cell:(${column},${yCoordinate})`} >
-                 <Item>{yCoordinate === row  && xCoordinate === column ? <Robot direction={direction}/> : ''}</Item>
+                 <Item>{yCoordinate === row  && xCoordinate === column ? <Robot direction={degreesToDirection(direction)}/> : ''}</Item>
             </Grid>
             ))}
           </Grid>

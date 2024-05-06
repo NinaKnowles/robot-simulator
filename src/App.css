@@ -53,18 +53,18 @@ font-family: "Open Sans",sans-serif;
   gap: 1.5em;
 }
 
-.NORTH{
+.north{
   transform: rotate(0deg);
 }
 
-.EAST{
+.east{
   transform: rotate(90deg);
 }
 
-.SOUTH{
+.south{
   transform: rotate(180deg);
 }
 
-.WEST{
+.west{
   transform: rotate(270deg);
 }
