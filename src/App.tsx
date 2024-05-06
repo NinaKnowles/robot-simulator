@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import { Box, Container } from '@mui/material'
 
-import InputForm from './components/input-form'
 import RobotTable from './components/robot-table'
+import StartingPositionInput from './components/starting-position-input';
 
 import './App.css'
 
@@ -13,6 +13,7 @@ export interface PositionValues {
   yCoordinate: number;
   direction: string;
 }
+
 
 function App() {
 
@@ -28,13 +29,21 @@ function App() {
       yCoordinate: Number(data.yCoordinate),
       direction: data.direction,
     });
+
+    setUserInputOptions(
+      <h1>hello</h1>
+    )
   };
+
+  const [userInputOptions, setUserInputOptions ] = useState(() => (
+    <StartingPositionInput onSubmit={handleFormSubmit} />
+  ));
 
   return (
     <>
     <Container>
       <Box className="container flex-center">
-        <InputForm onSubmit={handleFormSubmit}/>
+        {userInputOptions}
         <Box>
           <RobotTable   
             xCoordinate={robotPosition.xCoordinate}

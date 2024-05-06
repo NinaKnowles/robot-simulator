@@ -15,7 +15,7 @@ export interface ErrorValues {
 } 
 
 
-export default function InputForm({ onSubmit }: InputFormProps) {
+export default function StartingPositionInput({ onSubmit }: InputFormProps) {
   const [errors, setErrors] = useState<Partial<ErrorValues>>({});
   const { control, handleSubmit } = useForm<PositionValues>();
 
