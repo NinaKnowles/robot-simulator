@@ -47,3 +47,19 @@ font-family: "Open Sans",sans-serif;
   flex-direction: column;
   gap: 1.5em;
 }
+
+.NORTH{
+  transform: rotate(0deg);
+}
+
+.EAST{
+  transform: rotate(90deg);
+}
+
+.SOUTH{
+  transform: rotate(180deg);
+}
+
+.WEST{
+  transform: rotate(270deg);
+}

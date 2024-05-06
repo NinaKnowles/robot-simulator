@@ -13,8 +13,9 @@ const Item = styled(Paper)(({ theme }) => ({
     width:90, 
 }));
 
+
 const RobotTable = ({
-    // direction,
+    direction,
     xCoordinate,
     yCoordinate,
   }: PositionValues) => {
@@ -29,13 +30,14 @@ const RobotTable = ({
           <Grid key={column} item >
                 {rows.map((row) => (
             <Grid key={row} item  style={{ border: '1px solid #F7F7F7' }} id="cell">
-                 <Item>{yCoordinate === row  && xCoordinate === column ? <Robot/> : ''}</Item>
+                 <Item>{yCoordinate === row  && xCoordinate === column ? <Robot direction={direction}/> : ''}</Item>
             </Grid>
             ))}
           </Grid>
           ))}
         </Grid>
     </Box> 
+    
 
     )
 };

@@ -1,16 +1,17 @@
 
-import { Box, Container } from '@mui/material'
-import InputForm from './components/input-form'
+import { useState } from 'react';
 
+import { Box, Container } from '@mui/material'
+
+import InputForm from './components/input-form'
 import RobotTable from './components/robot-table'
 
 import './App.css'
-import { useState } from 'react';
 
 export interface PositionValues {
   xCoordinate: number;
   yCoordinate: number;
-  // direction: string;
+  direction: string;
 }
 
 function App() {
@@ -18,13 +19,14 @@ function App() {
   const [robotPosition, setRobotPosition] = useState<PositionValues>({
     xCoordinate: 0,
     yCoordinate: 0,
-    // direction: '',
+    direction: 'NORTH',
   });
 
   const handleFormSubmit = (data: PositionValues) => {
     setRobotPosition({ 
       xCoordinate: Number(data.xCoordinate), 
       yCoordinate: Number(data.yCoordinate),
+      direction: data.direction,
     });
   };
 
@@ -36,7 +38,8 @@ function App() {
         <Box>
           <RobotTable   
             xCoordinate={robotPosition.xCoordinate}
-            yCoordinate={robotPosition.yCoordinate} />  
+            yCoordinate={robotPosition.yCoordinate}
+            direction = {robotPosition.direction} />  
         </Box>
       </Box>
     </Container>

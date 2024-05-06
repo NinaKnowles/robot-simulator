@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { FormControl, TextField } from '@mui/material';
+import { InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 import { PositionValues } from '../App';
 
@@ -12,7 +12,6 @@ interface InputFormProps {
 export interface ErrorValues {
   xCoordinate: string;
   yCoordinate: string;
-  // direction: string;
 } 
 
 
@@ -20,8 +19,8 @@ export default function InputForm({ onSubmit }: InputFormProps) {
   const [errors, setErrors] = useState<Partial<ErrorValues>>({});
   const { control, handleSubmit } = useForm<PositionValues>();
 
-  const handleFormSubmit = (data: PositionValues) => {
-    const { xCoordinate, yCoordinate } = data;
+  const handleFormSubmit = (positionValues: PositionValues) => {
+    const { xCoordinate, yCoordinate} = positionValues;
 
     if (xCoordinate < 0 || xCoordinate > 4) {
       setErrors({xCoordinate:'Value must be between 0-4'});
@@ -30,28 +29,32 @@ export default function InputForm({ onSubmit }: InputFormProps) {
     }
     else{
       setErrors({});
-      onSubmit(data); 
+      onSubmit(positionValues); 
     }
   };
 
   return (
     <form className="flex-column" onSubmit={handleSubmit(handleFormSubmit)}>
       <h1>Set the starting position</h1>
-      {/* <FormControl>
-        <InputLabel>Direction</InputLabel>
-        <Select
-          name="direction"
-          label="Direction"
-          required
-          control={control}
-          defaultValue=""
-        >
-          <MenuItem value="NORTH">NORTH</MenuItem>
-          <MenuItem value="EAST">EAST</MenuItem>
-          <MenuItem value="SOUTH">SOUTH</MenuItem>
-          <MenuItem value="WEST">WEST</MenuItem>
-        </Select>
-      </FormControl> */}
+      <Controller
+        name="direction"
+        control={control}
+        defaultValue="NORTH"
+        render={({field}) => (
+          <>
+          <InputLabel>Direction</InputLabel>
+          <Select
+            required
+            {...field}
+          >
+            <MenuItem value="NORTH">NORTH</MenuItem>
+            <MenuItem value="EAST">EAST</MenuItem>
+            <MenuItem value="SOUTH">SOUTH</MenuItem>
+            <MenuItem value="WEST">WEST</MenuItem>
+          </Select>
+          </>
+        )}
+      />
       <Controller
         name="xCoordinate"
         control={control}
@@ -67,7 +70,6 @@ export default function InputForm({ onSubmit }: InputFormProps) {
           />
         )}
       />
-      <FormControl>
         <Controller
           name="yCoordinate"
           control={control}
@@ -83,7 +85,6 @@ export default function InputForm({ onSubmit }: InputFormProps) {
             />
           )}
         />
-      </FormControl>
       <button type="submit" className="button">Enter</button>
     </form>
   );

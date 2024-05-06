@@ -1,9 +1,12 @@
 import SmartToyTwoToneIcon from '@mui/icons-material/SmartToyTwoTone';
 
-const Robot = () => {
+interface RobotProps {
+    direction: string;
+};
 
+const Robot = ({direction}: RobotProps) => {
     return (
-        <SmartToyTwoToneIcon id="robot"/>
+        <SmartToyTwoToneIcon id="robot" className={direction? direction: "NORTH"}/>
     )
 };
 
