@@ -43,12 +43,13 @@ function App() {
     );
   };
 
-  const moveRobot = (direction:number) => { 
+  const moveRobot = () => { 
     setRobotPosition((prevPosition) => {
     let newXCoordinate = prevPosition.xCoordinate;
     let newYCoordinate = prevPosition.yCoordinate;
+    const newDirection = prevPosition.direction;
 
-    switch (direction) {
+    switch (newDirection) {
       case 0:
         newYCoordinate -= 1;
         break;
@@ -83,7 +84,7 @@ function App() {
       return {
         xCoordinate: newXCoordinate,
         yCoordinate: newYCoordinate,
-        direction,
+        direction: newDirection,
       };
     });
   };
