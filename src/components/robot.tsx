@@ -6,7 +6,7 @@ interface RobotProps {
 
 const Robot = ({direction}: RobotProps) => {
     return (
-        <SmartToyTwoToneIcon id="robot" className={direction? direction: "NORTH"}/>
+        <SmartToyTwoToneIcon id="robot" className={direction? direction: "NORTH"} data-testid="robot-component"/>
     )
 };
 

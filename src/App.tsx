@@ -14,7 +14,6 @@ export interface PositionValues {
   direction: string;
 }
 
-
 function App() {
 
   const [robotPosition, setRobotPosition] = useState<PositionValues>({

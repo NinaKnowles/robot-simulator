@@ -16,7 +16,7 @@
   font-size: 5em;
 }
 
-#cell > .MuiPaper-root{
+.cell > .MuiPaper-root{
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -29,7 +29,7 @@ const RobotTable = ({
         {columns.map((column) => (
           <Grid key={column} item >
                 {rows.map((row) => (
-            <Grid key={row} item  style={{ border: '1px solid #F7F7F7' }} id="cell">
+            <Grid key={row} item  style={{ border: '1px solid #F7F7F7' }} className="cell" data-testid={`cell:(${column},${yCoordinate})`} >
                  <Item>{yCoordinate === row  && xCoordinate === column ? <Robot direction={direction}/> : ''}</Item>
             </Grid>
             ))}
@@ -37,8 +37,6 @@ const RobotTable = ({
           ))}
         </Grid>
     </Box> 
-    
-
     )
 };
 
