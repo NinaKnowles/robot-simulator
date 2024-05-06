@@ -6,7 +6,6 @@ import { Box, Container } from '@mui/material'
 import RobotCommands from './components/robot-commands'
 import RobotTable from './components/robot-table'
 import StartingPositionInput from './components/starting-position-input';
-import { directionToDegrees} from './utils/directions-to-degrees'
 
 import './App.css'
 
@@ -15,7 +14,6 @@ export interface PositionValues {
   yCoordinate: number;
   direction: number;
 }
-
 
 function App() {
 
@@ -34,8 +32,7 @@ function App() {
 
     setUserInputOptions(
       <RobotCommands
-      moveRobot={() => moveRobot(data.direction)}
-      // robotPosition={robotPosition}
+      moveRobot={moveRobot}
       rotateLeft={rotateLeft}
       rotateRight={rotateRight}
       reportPosition={reportPosition}

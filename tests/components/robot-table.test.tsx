@@ -1,12 +1,13 @@
 import React from "react";
+
+import { render, screen } from '@testing-library/react';
+
 import RobotTable from "../../src/components/robot-table";
-import { fireEvent, render, screen } from '@testing-library/react';
-import { getAllByTestId} from '@testing-library/react';
 
 it('renders the correct number of rows and columns', () => {
     render(
         <RobotTable
-            direction="NORTH"
+            direction={0}
             xCoordinate={0}
             yCoordinate={0}
         />
@@ -23,7 +24,7 @@ it('renders the Robot component in the selected cell', () => {
 
     render(
         <RobotTable
-            direction="NORTH"
+            direction={0}
             xCoordinate={selectedXCoordinate}
             yCoordinate={selectedYCoordinate}
         />

@@ -1,10 +1,9 @@
 import { Box, Grid, Paper, styled } from '@mui/material';
 
 import { PositionValues } from '../App';
+import { degreesToDirection } from '../utils/directions-to-degrees';
 
 import Robot from './robot';
-
-import { degreesToDirection } from '../utils/directions-to-degrees';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
