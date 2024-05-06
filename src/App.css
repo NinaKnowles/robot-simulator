@@ -48,6 +48,11 @@ font-family: "Open Sans",sans-serif;
   gap: 1.5em;
 }
 
+.flex-row{
+  display: flex;
+  gap: 1.5em;
+}
+
 .NORTH{
   transform: rotate(0deg);
 }
