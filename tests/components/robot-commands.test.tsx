@@ -4,7 +4,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import RobotCommands from '../../src/components/robot-commands';
 
-import '@testing-library/jest-dom';
 
 describe('RobotCommands component', () => {
   it('renders with correct buttons and direction', () => {

@@ -46,6 +46,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
           <Select
             required
             {...field}
+            data-testid="direction-select"
           >
             <MenuItem value={0}>NORTH</MenuItem>
             <MenuItem value={90}>EAST</MenuItem>
@@ -67,6 +68,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
             required
             error={!!errors.xCoordinate}
             helperText={errors.xCoordinate || 'Enter a value between 0-4'}
+            data-testid="x-coordinate-input"
           />
         )}
       />
@@ -82,6 +84,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
               required
               error={!!errors.yCoordinate}
               helperText={errors.yCoordinate || 'Enter a value between 0-4'}
+              data-testid="y-coordinate-input"
             />
           )}
         />

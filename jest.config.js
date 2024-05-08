@@ -1,5 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-module.exports = {
+export default {
 	preset: 'ts-jest',
 	testEnvironment: 'jsdom',
 	moduleNameMapper: {
@@ -7,4 +7,6 @@ module.exports = {
 			'<rootDir>/tests/mocks/file-mock.js',
 		'\\.(css|less|scss)$': '<rootDir>/tests/mocks/style-mock.ts',
 	},
+	setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts'],
 };
+ 

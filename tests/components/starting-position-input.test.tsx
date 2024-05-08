@@ -1,10 +1,10 @@
-import React from "react";
 
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+
+
+
+import { fireEvent, getByRole, render, screen, waitFor } from '@testing-library/react';
 
 import StartingPositionInput  from "../../src/components/starting-position-input";
-
-import '@testing-library/jest-dom';
 
 describe('InputForm component', () => {
   it('renders form elements correctly', () => {
@@ -19,30 +19,59 @@ describe('InputForm component', () => {
     expect(screen.getByText('Enter')).toBeInTheDocument();
   });
 
-//   it('handles form submission correctly', async () => {
 
-//     const handleFormSubmit = jest.fn();
-//     // Arrange
+//   test('submits form with valid input', async () => {
 //     const onSubmit = jest.fn();
-//     render(<StartingPositionInput onSubmit={handleFormSubmit} />)
+//     const { getByTestId, getByRole } = render(<StartingPositionInput onSubmit={onSubmit} />);
+//     const directionSelect = getByTestId('direction-select');
+//     const xCoordinateInput = getByTestId('x-coordinate-input');
+//     const yCoordinateInput = getByTestId('y-coordinate-input');
+//     const enterButton = getByRole('button', { name: /enter/i });
 
-//     const directionSelect = screen.getByText('Direction');
-//     const xCoordinateInput = screen.getByText('X Coordinate');
-//     const yCoordinateInput = screen.getByText('Y Coordinate');
+//     fireEvent.change(directionSelect, { target: { value: '90' } }); // Use target.value
+//     fireEvent.change(xCoordinateInput, { target: { value: '2' } }); // Use target.value
+//     fireEvent.change(yCoordinateInput, { target: { value: '3' } }); 
+//     fireEvent.click(enterButton);
 
-//     // Act
-//     fireEvent.change(directionSelect, { target: { value: '90' } });
-//     fireEvent.change(xCoordinateInput, { target: { value: '2' } });
-//     fireEvent.change(yCoordinateInput, { target: { value: '3' } });
+//     await waitFor(() =>
+//         expect(onSubmit).toHaveBeenCalledWith({
+//         direction: 90,
+//         xCoordinate: 2,
+//         yCoordinate: 3,
+//         })
+//     );
+//   });
+
+
+// test('does not submit form with invalid input', async () => {
+//     const onSubmit = jest.fn();
+//     const { getByTestId, queryByText } = render(<StartingPositionInput onSubmit={onSubmit} />);
+//         const directionSelect = getByTestId('direction-select');
+//     const xCoordinateInput = getByTestId('x-coordinate-input');
+//     const yCoordinateInput = getByTestId('y-coordinate-input');
+    
+
+//     fireEvent.change(xCoordinateInput,  { value: '-1' } );
+//     fireEvent.change(yCoordinateInput,  { value: '5' } );
 //     fireEvent.click(screen.getByText('Enter'));
 
-//     // Assert
-//     await waitFor(() => expect(onSubmit).toHaveBeenCalledWith({
-//       direction: '90',
-//       xCoordinate: '2',
-//       yCoordinate: '3',
-//     }));
+//     await waitFor(() =>
+//         expect(onSubmit).not.toHaveBeenCalled()
+//     );
+    
+//     await waitFor(() =>
+//         expect(queryByText('Value must be between 0-4')).toBeInTheDocument()
+//     );
+//     // Ensure the form does not submit with invalid input4
+
+//     fireEvent.click(screen.getByText('Enter'));
+
+//     await waitFor(() =>
+//     expect(onSubmit).not.toHaveBeenCalled()
+//     );
+
 //   });
+// });
 
 //   it('displays error messages for invalid inputs', async () => {
 //     // Arrange
