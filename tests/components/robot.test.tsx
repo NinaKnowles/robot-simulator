@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/react';
 
 import Robot from '../../src/components/robot';
 
+import '@testing-library/jest-dom';
+
 describe('Robot component', () => {
   it('renders with the correct direction icon', () => {
     const direction = 'EAST';

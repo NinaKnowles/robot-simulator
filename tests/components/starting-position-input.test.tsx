@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 
 import StartingPositionInput from '../../src/components/starting-position-input';
 
+import '@testing-library/jest-dom';
+
 describe('InputForm component', () => {
   it('renders form elements correctly', () => {
     const handleFormSubmit = jest.fn();

@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/react';
 
 import RobotTable from '../../src/components/robot-table';
 
+import '@testing-library/jest-dom';
+
 it('renders the correct number of rows and columns', () => {
   render(<RobotTable direction={0} xCoordinate={0} yCoordinate={0} />);
 

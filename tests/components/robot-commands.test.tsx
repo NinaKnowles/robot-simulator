@@ -3,6 +3,9 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import RobotCommands from '../../src/components/robot-commands';
+import { defaultMessage } from '../../src/components/status-messages';
+
+import '@testing-library/jest-dom';
 
 describe('RobotCommands component', () => {
   it('renders with correct buttons and direction', () => {
@@ -19,6 +22,7 @@ describe('RobotCommands component', () => {
         reportPosition={reportPositionMock}
         isButtonDisabled={false}
         direction="NORTH"
+        statusMessage={defaultMessage()}
       />
     );
 
@@ -44,6 +48,7 @@ describe('RobotCommands component', () => {
         reportPosition={reportPositionMock}
         isButtonDisabled={false}
         direction="NORTH"
+        statusMessage={defaultMessage()}
       />
     );
 
@@ -67,6 +72,7 @@ describe('RobotCommands component', () => {
         reportPosition={() => {}}
         isButtonDisabled={true}
         direction="NORTH"
+        statusMessage={defaultMessage()}
       />
     );
 
