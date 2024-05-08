@@ -7,6 +7,7 @@ import { Box, Container, ThemeProvider } from '@mui/material'
 import RobotCommands from './components/robot-commands'
 import RobotTable from './components/robot-table'
 import StartingPositionInput from './components/starting-position-input';
+import { defaultMessage, limitExceededMessage, readyMessage } from './components/status-messages';
 import customButtonTheme from './styles/styles';
 import { degreesToDirection } from './utils/directions-to-degrees';
 
@@ -25,10 +26,11 @@ function App() {
     yCoordinate: 0,
     direction: 0,
   });
+  
 
   const [arrowDirection, setArrowDirection] = useState(0);
 
-  const [statusMessage, setStatusMessage] = useState(<></>);
+  const [statusMessage, setStatusMessage] = useState(defaultMessage());
 
   const [isButtonDisabled, setIsButtonDisabled ] = useState((true));
 
@@ -41,10 +43,12 @@ function App() {
 
     setIsButtonDisabled(false);
 
+    setStatusMessage(readyMessage);
+
   };
 
   const moveRobot = () => { 
-    setStatusMessage(<></>)
+    setStatusMessage(readyMessage)
     setRobotPosition((prevPosition) => {
     let newXCoordinate = prevPosition.xCoordinate;
     let newYCoordinate = prevPosition.yCoordinate;
@@ -68,17 +72,17 @@ function App() {
     }
 
       if ( newXCoordinate > 4){
-        setStatusMessage(limitExceeded);
+        setStatusMessage(limitExceededMessage);
         newXCoordinate -= 1;
         console.log(newXCoordinate);
       } else if (newXCoordinate < 0) {
-        setStatusMessage(limitExceeded)
+        setStatusMessage(limitExceededMessage)
         newXCoordinate += 1;
       } else if (newYCoordinate < 0){
-        setStatusMessage(limitExceeded)
+        setStatusMessage(limitExceededMessage)
         newYCoordinate += 1;
       } else if (newYCoordinate > 4){
-        setStatusMessage(limitExceeded)
+        setStatusMessage(limitExceededMessage)
         newYCoordinate -= 1;
       }
   
@@ -90,14 +94,7 @@ function App() {
     });
   };
 
-  const limitExceeded = () => { 
-      return(
-      <p className="text-centre warning-message">Limit Exceeded</p> 
-    )
-  }
-
   const reportPosition = () => {
-    console.log(robotPosition)
 
     setStatusMessage(<p className="text-centre">{robotPosition.xCoordinate}, {robotPosition.yCoordinate}, {degreesToDirection(robotPosition.direction).toUpperCase()} </p> )
   };
@@ -107,6 +104,7 @@ function App() {
     setRobotPosition((prevPosition) => {
       let newDirection = prevPosition.direction;
 
+      setStatusMessage(readyMessage)
 
       newDirection = (newDirection + 270) % 360;
       setArrowDirection(newDirection);
@@ -121,6 +119,7 @@ function App() {
     setRobotPosition((prevPosition) => {
       let newDirection = prevPosition.direction;
 
+      setStatusMessage(readyMessage)
 
       newDirection = (newDirection + 90) % 360;
       setArrowDirection(newDirection);

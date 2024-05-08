@@ -15,8 +15,7 @@ interface RobotCommandProps {
 
 const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isButtonDisabled, direction, statusMessage }:RobotCommandProps) => {
     return (
-        <Box  className="flex-column">
-            {statusMessage}
+        <Box  className="flex-column flex-end">
             <Button onClick={moveRobot} variant="contained" disabled={isButtonDisabled} >MOVE</Button>
             <Box className="flex-row-center">
                 <StraightIcon  className={direction? direction: "north"} data-testid="straight-icon" />
@@ -27,6 +26,7 @@ const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isBu
             <Button onClick={rotateRight}    variant="contained" disabled={isButtonDisabled} className="rotate-button">RIGHT</Button>
             </Box>
             <Button onClick={reportPosition}  variant="contained" disabled={isButtonDisabled}  className="special-button">REPORT</Button>
+            {statusMessage}
         </Box>
        
     )
