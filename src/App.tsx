@@ -36,7 +36,7 @@ function App() {
       direction: data.direction,
     }));
 
-    setIsButtonDisabled(!isButtonDisabled);
+    setIsButtonDisabled(false);
 
   };
 
@@ -48,10 +48,10 @@ function App() {
 
     switch (newDirection) {
       case 0:
-        newYCoordinate -= 1;
+        newYCoordinate += 1;
         break;
       case 180:
-        newYCoordinate += 1;
+        newYCoordinate -= 1;
         break;
       case 90:
         newXCoordinate += 1;
