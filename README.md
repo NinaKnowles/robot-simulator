@@ -33,7 +33,7 @@ The robot will not be able to move off the edge of the table.
 
 ### `npm run dev`
 
-# B - Prettier & Linter Tools
+##  B - Prettier & Linter Tools
 
 Before making a merge request make sure to run prettier and the linter. The first time you run "npm run dev" it will do this by default but you will need to check again when you are finished making changes.
 
@@ -49,7 +49,7 @@ Before making a merge request make sure to run prettier and the linter. The firs
 4. Address any type errors that have been identified.
 5. Repeat previous steps until, no more errors are being flagged then continue to the next step.
 
-# C - Naming Convention: File Names
+## C - Naming Convention: File Names
 
 File names should have the following convention:
 
