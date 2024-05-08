@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState }from 'react';
+import React from 'react';
 
 import { Box, Container, ThemeProvider } from '@mui/material';
 
@@ -35,11 +36,11 @@ function App() {
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const handleFormSubmit = (data: PositionValues) => {
+  const handleFormSubmit = (positionData: PositionValues) => {
     setRobotPosition(() => ({
-      xCoordinate: Number(data.xCoordinate),
-      yCoordinate: Number(data.yCoordinate),
-      direction: data.direction,
+      xCoordinate: Number(positionData.xCoordinate),
+      yCoordinate: Number(positionData.yCoordinate),
+      direction: positionData.direction,
     }));
 
     setIsButtonDisabled(false);
