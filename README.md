@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# Robot Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project an interactive simulation of a robot moving on a square tabletop, of dimensions 5 units x 5 units.
 
-Currently, two official plugins are available:
+The user must select a starting position (Direction, X Coordinate and Y Coordinate) and selecting ENTER before they are able to move the robot.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+They will then have be able to select the following options:
+ - MOVE: move the robot 1 unit in the direction it is facing
+ - LEFT: rotate the robot left (anti-clockwise)
+ - RIGHT: rotate the robot right (clockwise)
+ - REPORT: report the position values
 
-## Expanding the ESLint configuration
+The user has the option to change the robot position by inputting different values in the form and selecting ENTER again. 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The robot will not be able to move off the edge of the table. 
 
-- Configure the top-level `parserOptions` property like this:
+##### Table of Contents
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+| Section | Description                   |
+| ------- | ----------------------------- |
+| A       | Set Up Instructions           |
+| B       | Prettier & Linter Tools       |
+| C       | Naming Conventions: Filenames |
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## A - SET UP INSTRUCTIONS
+
+1. To install the dependencies:
+
+### `npm i`
+
+2. To run the application:
+
+### `npm run dev`
+
+# B - Prettier & Linter Tools
+
+Before making a merge request make sure to run prettier and the linter. The first time you run "npm run dev" it will do this by default but you will need to check again when you are finished making changes.
+
+1. Run the prettier and linter tools to tidy up the formatting and check for formatting issues
+
+### `npm run fix`
+
+2. Address any bugs that have been spotted by the linter
+3. Check if all linter formatting issues have been addressed. This will also spot any type errors:
+
+### `npm run check`
+
+4. Address any type errors that have been identified.
+5. Repeat previous steps until, no more errors are being flagged then continue to the next step.
+
+# C - Naming Convention: File Names
+
+File names should have the following convention:
+
+- Typescript files should be kebab case: hello-world.tsx
