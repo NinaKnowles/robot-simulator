@@ -1,4 +1,4 @@
-import { degreesToDirection } from '../../src/utils/directions-to-degrees'
+import { degreesToDirection } from '../../src/utils/directions-to-degrees';
 
 describe('degreesToDirection function', () => {
   test('returns the correct direction for given degrees', () => {

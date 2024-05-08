@@ -1,97 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-
-.container{
+.container {
   display: flex;
   justify-content: space-around;
   height: 100vh;
-  width:100%;
+  width: 100%;
 }
 
 #table {
- border: 10px solid #F9DA53;
-} 
+  border: 10px solid #f9da53;
+}
 
 #robot {
   font-size: 5em;
 }
 
-.cell > .MuiPaper-root{
+.cell > .MuiPaper-root {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.flex-column-center{
+.flex-column-center {
   display: flex;
   align-items: center;
   gap: 2em;
 }
 
-.flex-row-center{
+.flex-row-center {
   display: flex;
   justify-content: center;
   gap: 2em;
 }
 
 :root {
-font-family: "Open Sans",sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .button {
   color: white;
   background-color: black;
   border: none;
-  padding:.85rem 2rem; 
+  padding: 0.85rem 2rem;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.flex-column{
+.flex-column {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
   justify-content: center;
 }
 
-.flex-row{
+.flex-row {
   display: flex;
   gap: 1.5em;
 }
 
-.north{
+.north {
   transform: rotate(0deg);
 }
 
-.east{
+.east {
   transform: rotate(90deg);
 }
 
-.south{
+.south {
   transform: rotate(180deg);
 }
 
-.west{
+.west {
   transform: rotate(270deg);
 }
 
-#rotate-label{
+#rotate-label {
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
 }
 
-div > .special-button{
-  background-color: #F9DA53;
+div > .special-button {
+  background-color: #f9da53;
   color: black;
 }
 
-.warning-message{
+.warning-message {
   color: red;
 }
 
-.text-centre{
+.text-centre {
   text-align: center;
 }

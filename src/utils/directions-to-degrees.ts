@@ -12,4 +12,3 @@ export function degreesToDirection(degrees: number): string {
       return 'unknown';
   }
 }
-  

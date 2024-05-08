@@ -4,7 +4,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import RobotCommands from '../../src/components/robot-commands';
 
-
 describe('RobotCommands component', () => {
   it('renders with correct buttons and direction', () => {
     const moveRobotMock = jest.fn();
@@ -76,5 +75,4 @@ describe('RobotCommands component', () => {
     expect(screen.getByText('RIGHT')).toBeDisabled();
     expect(screen.getByText('REPORT')).toBeDisabled();
   });
-
 });

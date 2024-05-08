@@ -5,14 +5,15 @@ This project an interactive simulation of a robot moving on a square tabletop, o
 The user must select a starting position (Direction, X Coordinate and Y Coordinate) and selecting ENTER before they are able to move the robot.
 
 They will then have be able to select the following options:
- - MOVE: move the robot 1 unit in the direction it is facing
- - LEFT: rotate the robot left (anti-clockwise)
- - RIGHT: rotate the robot right (clockwise)
- - REPORT: report the position values
 
-The user has the option to change the robot position by inputting different values in the form and selecting ENTER again. 
+- MOVE: move the robot 1 unit in the direction it is facing
+- LEFT: rotate the robot left (anti-clockwise)
+- RIGHT: rotate the robot right (clockwise)
+- REPORT: report the position values
 
-The robot will not be able to move off the edge of the table. 
+The user has the option to change the robot position by inputting different values in the form and selecting ENTER again.
+
+The robot will not be able to move off the edge of the table.
 
 ##### Table of Contents
 
@@ -21,7 +22,6 @@ The robot will not be able to move off the edge of the table.
 | A       | Set Up Instructions           |
 | B       | Prettier & Linter Tools       |
 | C       | Naming Conventions: Filenames |
-
 
 ## A - SET UP INSTRUCTIONS
 
