@@ -10,11 +10,13 @@ interface RobotCommandProps {
     reportPosition: () => void;
     isButtonDisabled: boolean;
     direction:string;
-}  
+    statusMessage: React.JSX.Element;
+}
 
-const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isButtonDisabled, direction }:RobotCommandProps) => {
+const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isButtonDisabled, direction, statusMessage }:RobotCommandProps) => {
     return (
         <Box  className="flex-column">
+            {statusMessage}
             <Button onClick={moveRobot} variant="contained" disabled={isButtonDisabled} >MOVE</Button>
             <Box className="flex-row-center">
                 <StraightIcon  className={direction? direction: "north"} data-testid="straight-icon" />

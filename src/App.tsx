@@ -28,6 +28,8 @@ function App() {
 
   const [arrowDirection, setArrowDirection] = useState(0);
 
+  const [statusMessage, setStatusMessage] = useState(<></>);
+
   const [isButtonDisabled, setIsButtonDisabled ] = useState((true));
 
   const handleFormSubmit = (data: PositionValues) => {
@@ -42,6 +44,7 @@ function App() {
   };
 
   const moveRobot = () => { 
+    setStatusMessage(<></>)
     setRobotPosition((prevPosition) => {
     let newXCoordinate = prevPosition.xCoordinate;
     let newYCoordinate = prevPosition.yCoordinate;
@@ -65,17 +68,17 @@ function App() {
     }
 
       if ( newXCoordinate > 4){
-        console.log('Limit exceeded');
+        setStatusMessage(limitExceeded);
         newXCoordinate -= 1;
         console.log(newXCoordinate);
       } else if (newXCoordinate < 0) {
-        console.log('Limit exceeded');
+        setStatusMessage(limitExceeded)
         newXCoordinate += 1;
       } else if (newYCoordinate < 0){
-        console.log('Limit exceeded');
+        setStatusMessage(limitExceeded)
         newYCoordinate += 1;
       } else if (newYCoordinate > 4){
-        console.log('Limit exceeded');
+        setStatusMessage(limitExceeded)
         newYCoordinate -= 1;
       }
   
@@ -87,8 +90,16 @@ function App() {
     });
   };
 
+  const limitExceeded = () => { 
+      return(
+      <p className="text-centre warning-message">Limit Exceeded</p> 
+    )
+  }
+
   const reportPosition = () => {
     console.log(robotPosition)
+
+    setStatusMessage(<p className="text-centre">{robotPosition.xCoordinate}, {robotPosition.yCoordinate}, {degreesToDirection(robotPosition.direction).toUpperCase()} </p> )
   };
 
 
@@ -134,13 +145,12 @@ function App() {
       reportPosition={reportPosition}
       isButtonDisabled={isButtonDisabled}
       direction={degreesToDirection(arrowDirection)}
+      statusMessage={statusMessage}
     />
-        <Box>
-          <RobotTable   
-            xCoordinate={robotPosition.xCoordinate}
-            yCoordinate={robotPosition.yCoordinate}
-            direction = {robotPosition.direction} />  
-        </Box>
+      <RobotTable   
+        xCoordinate={robotPosition.xCoordinate}
+        yCoordinate={robotPosition.yCoordinate}
+        direction = {robotPosition.direction} />  
       </Box>
     </Container>
 

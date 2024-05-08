@@ -35,7 +35,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
 
   return (
     <form className="flex-column" onSubmit={handleSubmit(handleFormSubmit)}>
-      <h3 className='text-centre'>Set the robot position</h3>
+      <h3>Set the robot position</h3>
       <Controller
         name="direction"
         control={control}
