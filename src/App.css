@@ -23,9 +23,16 @@
   align-items: center;
 }
 
-.flex-center{
+.flex-column-center{
   display: flex;
   align-items: center;
+  gap: 2em;
+}
+
+.flex-row-center{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }
 
 :root {
@@ -46,6 +53,7 @@ font-family: "Open Sans",sans-serif;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  justify-content: center;
 }
 
 .flex-row{
@@ -67,4 +75,26 @@ font-family: "Open Sans",sans-serif;
 
 .west{
   transform: rotate(270deg);
+}
+
+/* .MuiButton-root {
+  color: white;
+  background-color: black;
+  border-radius: 0;
+}
+
+.MuiButton-root:hover,
+.MuiButton-root:active {
+  background-color: yellow;
+} */
+
+#rotate-label{
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+div > .special-button{
+  background-color: #F9DA53;
+  color: black;
 }

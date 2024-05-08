@@ -1,23 +1,28 @@
-import { Box} from "@mui/material";
-
+import StraightIcon from '@mui/icons-material/Straight';
+import { Box, Button} from "@mui/material";
 
 interface RobotCommandProps {
     moveRobot: () => void;
     rotateRight: () => void;
     rotateLeft: () => void;
     reportPosition: () => void;
-}
-  
+    isButtonDisabled: boolean;
+    direction:string;
+}  
 
-const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition}:RobotCommandProps) => {
+const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isButtonDisabled, direction }:RobotCommandProps) => {
     return (
-        <Box className="flex-column">
-            <button onClick={moveRobot} className="button">MOVE</button>
-            <Box className="flex-row">
-            <button onClick={rotateLeft}className="button">LEFT</button>
-             <button onClick={rotateRight} className="button">RIGHT</button>
+        <Box  className="flex-column">
+            <Button onClick={moveRobot} variant="contained" disabled={isButtonDisabled} >MOVE</Button>
+            <Box className="flex-row-center">
+                <StraightIcon  className={direction? direction: "NORTH"} />
             </Box>
-            <button onClick={reportPosition} className="button">REPORT</button>
+            <h3 id="rotate-label">Rotate Direction:</h3>
+            <Box className="flex-row">
+            <Button onClick={rotateLeft}   variant="contained" disabled={isButtonDisabled} >LEFT</Button>
+            <Button onClick={rotateRight}    variant="contained" disabled={isButtonDisabled} className="rotate-button">RIGHT</Button>
+            </Box>
+            <Button onClick={reportPosition}  variant="contained" disabled={isButtonDisabled}  className="special-button">REPORT</Button>
         </Box>
        
     )

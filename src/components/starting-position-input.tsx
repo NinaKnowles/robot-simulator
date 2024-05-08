@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import {Button, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 import { PositionValues } from '../App';
 
@@ -35,7 +35,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
 
   return (
     <form className="flex-column" onSubmit={handleSubmit(handleFormSubmit)}>
-      <h1>Set the starting position</h1>
+      <h3 className='text-centre'>Set the robot position</h3>
       <Controller
         name="direction"
         control={control}
@@ -85,7 +85,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
             />
           )}
         />
-      <button type="submit" className="button">Enter</button>
+      <Button type="submit">Enter</Button>
     </form>
   );
 }

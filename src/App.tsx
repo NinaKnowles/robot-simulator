@@ -1,11 +1,13 @@
 
 import { useState } from 'react';
 
-import { Box, Container } from '@mui/material'
+import { Box, Container, ThemeProvider } from '@mui/material'
 
 import RobotCommands from './components/robot-commands'
 import RobotTable from './components/robot-table'
 import StartingPositionInput from './components/starting-position-input';
+import customButtonTheme from './styles/styles';
+import { degreesToDirection } from './utils/directions-to-degrees';
 
 import './App.css'
 
@@ -23,6 +25,10 @@ function App() {
     direction: 0,
   });
 
+  const [arrowDirection, setArrowDirection] = useState(0);
+
+  const [isButtonDisabled, setIsButtonDisabled ] = useState((true));
+
   const handleFormSubmit = (data: PositionValues) => {
     setRobotPosition(() => ({ 
       xCoordinate: Number(data.xCoordinate), 
@@ -30,14 +36,8 @@ function App() {
       direction: data.direction,
     }));
 
-    setUserInputOptions(
-      <RobotCommands
-      moveRobot={moveRobot}
-      rotateLeft={rotateLeft}
-      rotateRight={rotateRight}
-      reportPosition={reportPosition}
-    />
-    );
+    setIsButtonDisabled(!isButtonDisabled);
+
   };
 
   const moveRobot = () => { 
@@ -97,7 +97,7 @@ function App() {
 
 
       newDirection = (newDirection + 270) % 360;
-      console.log(newDirection)
+      setArrowDirection(newDirection);
         return {
           ...prevPosition,
           direction: newDirection
@@ -111,23 +111,29 @@ function App() {
 
 
       newDirection = (newDirection + 90) % 360;
-      console.log(newDirection)
+      setArrowDirection(newDirection);
         return {
           ...prevPosition,
           direction: newDirection
         };
       });
-  };
 
-  const [userInputOptions, setUserInputOptions ] = useState(() => (
-    <StartingPositionInput onSubmit={handleFormSubmit} />
-  ));
+  };
 
   return (
     <>
+    <ThemeProvider theme={customButtonTheme}>
     <Container>
-      <Box className="container flex-center">
-        {userInputOptions}
+      <Box className="container flex-column-center">
+      <StartingPositionInput onSubmit={handleFormSubmit} />
+      <RobotCommands
+      moveRobot={moveRobot}
+      rotateLeft={rotateLeft}
+      rotateRight={rotateRight}
+      reportPosition={reportPosition}
+      isButtonDisabled={isButtonDisabled}
+      direction={degreesToDirection(arrowDirection)}
+    />
         <Box>
           <RobotTable   
             xCoordinate={robotPosition.xCoordinate}
@@ -136,6 +142,8 @@ function App() {
         </Box>
       </Box>
     </Container>
+
+    </ThemeProvider>
     
     </>
   )

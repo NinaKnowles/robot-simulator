@@ -23,8 +23,6 @@ const RobotTable = ({
     const rows = [0, 1, 2, 3, 4];
     const columns = [0, 1, 2, 3, 4];
 
-    console.log(degreesToDirection(direction));
-
     return (
     <Box>
         <Grid container id="table">
