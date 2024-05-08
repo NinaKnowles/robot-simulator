@@ -1,3 +1,5 @@
+import React from 'react';
+
 import StraightIcon from '@mui/icons-material/Straight';
 import { Box, Button} from "@mui/material";
 
@@ -15,7 +17,7 @@ const RobotCommands = ({moveRobot, rotateLeft, rotateRight, reportPosition, isBu
         <Box  className="flex-column">
             <Button onClick={moveRobot} variant="contained" disabled={isButtonDisabled} >MOVE</Button>
             <Box className="flex-row-center">
-                <StraightIcon  className={direction? direction: "NORTH"} />
+                <StraightIcon  className={direction? direction: "NORTH"} data-testid="straight-icon" />
             </Box>
             <h3 id="rotate-label">Rotate Direction:</h3>
             <Box className="flex-row">
