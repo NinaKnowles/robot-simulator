@@ -1,27 +1,21 @@
 import React from 'react';
 
-import { Box, Grid, Paper, styled } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 import { PositionValues } from '../App';
+import { Item } from '../styles/styles';
 import { degreesToDirection } from '../utils/directions-to-degrees';
 
 import Robot from './robot';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  height: 90,
-  width: 90,
-}));
+const rows = [4, 3, 2, 1, 0];
+const columns = [0, 1, 2, 3, 4];
 
 const RobotTable = ({
   direction,
   xCoordinate,
   yCoordinate,
 }: PositionValues) => {
-  const rows = [4, 3, 2, 1, 0];
-  const columns = [0, 1, 2, 3, 4];
 
   return (
     <Box>

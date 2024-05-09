@@ -12,7 +12,8 @@ import {
   positionMessage,
   readyMessage,
 } from './components/status-messages';
-import customButtonTheme from './styles/styles';
+import {LOWER_LIMIT,  UPPER_LIMIT} from './constants/upper-lower-limits';
+import {customButtonTheme} from './styles/styles';
 import { degreesToDirection } from './utils/directions-to-degrees';
 
 import './App.css';
@@ -22,7 +23,6 @@ export interface PositionValues {
   yCoordinate: number;
   direction: number;
 }
-
 function App() {
   const [robotPosition, setRobotPosition] = useState<PositionValues>({
     xCoordinate: 0,
@@ -72,19 +72,13 @@ function App() {
           break;
       }
 
-      if (newXCoordinate > 4) {
+      if (newXCoordinate < LOWER_LIMIT || newXCoordinate > UPPER_LIMIT) {
         setStatusMessage(limitExceededMessage);
-        newXCoordinate -= 1;
-      } else if (newXCoordinate < 0) {
+        newXCoordinate = prevPosition.xCoordinate;
+    } else if (newYCoordinate < LOWER_LIMIT || newYCoordinate > UPPER_LIMIT) {
         setStatusMessage(limitExceededMessage);
-        newXCoordinate += 1;
-      } else if (newYCoordinate < 0) {
-        setStatusMessage(limitExceededMessage);
-        newYCoordinate += 1;
-      } else if (newYCoordinate > 4) {
-        setStatusMessage(limitExceededMessage);
-        newYCoordinate -= 1;
-      }
+        newYCoordinate = prevPosition.yCoordinate;
+    }
 
       return {
         xCoordinate: newXCoordinate,
